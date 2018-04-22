@@ -6,5 +6,5 @@ const Header = () => (
     <h1>Header Goes Here</h1>
     <NavBar />
   </header>
-  )
+)
 export default Header

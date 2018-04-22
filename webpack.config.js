@@ -24,7 +24,7 @@ const Common = merge([
       // The context property references the source directory and tells
       // webpack to begin there. `main` is just the key that references
       // the starting point of the application, `index.js`
-      main: './index.js'
+      main: './index.js',
     },
     output: {
       // `[name]` will be replaced with the key that references our
@@ -76,7 +76,21 @@ const Common = merge([
       // Generates an index.html file template with
       // our bundled JavaScript injected into the bottom of the body
       new HtmlWebpackPlugin({ template: path.join(PATHS.src, 'index.html') })
-    ]
+    ],
+    optimization: {
+      runtimeChunk: {
+        name: 'vendor'
+      },
+      splitChunks: {
+        cacheGroups: {
+          commons: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendor',
+            chunks: 'all'
+          }
+        }
+      }
+    }
   }
 ])
 

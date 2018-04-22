@@ -8,6 +8,6 @@ const NavBar = () => (
       <li>Contact Us</li>
     </ul>
   </nav>
-  )
+)
 
 export default NavBar
